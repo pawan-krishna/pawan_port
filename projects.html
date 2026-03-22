@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Projects | NPKV</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">NPKV</a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <div class="theme-switch-wrapper"><label class="theme-switch" for="checkbox"><input type="checkbox" id="checkbox" /><div class="slider"></div></label></div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section>
+        <h2>Research & Development</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Hunting Exoplanets with AI</h3>
+                <p>Using CNNs to analyze NASA light-curves. By filtering stellar noise, this model identifies potential worlds orbiting distant stars.</p>
+                <p style="font-weight:bold; color:var(--accent); margin-top:10px;">Accuracy: 86.00%</p>
+            </div>
+            <div class="card">
+                <h3>Fashion Classification MNIST</h3>
+                <p>A deep learning model utilizing Transfer Learning to classify apparel items into 10 distinct categories with high precision.</p>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

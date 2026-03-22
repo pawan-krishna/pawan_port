@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Technical Skills | NPKV</title>
+</head>
+<body>
+
+    <!-- THE NAVIGATION BAR (Must be the same on all pages) -->
+    <nav>
+        <a href="index.html" class="logo">NPKV</a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html" class="active">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider"></div>
+                </label>
+            </div>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <p class="overline">MY TECHNICAL ARSENAL</p>
+        <h2>Expertise & <span class="highlight">Certifications</span></h2>
+        
+        <div class="grid">
+            <!-- Programming Languages -->
+            <div class="card">
+                <i class="fas fa-code" style="font-size: 2rem; color: var(--accent); margin-bottom: 15px;"></i>
+                <h3>Programming</h3>
+                <p><strong>Languages:</strong> Python, Java, SQL, C++, HTML5, CSS3</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-dim);">
+                    Strong foundation in Python for Data Science and Java for Core Logic.
+                </p>
+            </div>
+
+            <!-- AI & ML -->
+            <div class="card">
+                <i class="fas fa-brain" style="font-size: 2rem; color: var(--accent); margin-bottom: 15px;"></i>
+                <h3>AI & Machine Learning</h3>
+                <p><strong>Frameworks:</strong> TensorFlow, Keras, Scikit-Learn</p>
+                <p><strong>Specializations:</strong> Deep Learning, CNNs, Computer Vision, Supervised & Unsupervised Learning.</p>
+            </div>
+
+            <!-- Tools & Databases -->
+            <div class="card">
+                <i class="fas fa-tools" style="font-size: 2rem; color: var(--accent); margin-bottom: 15px;"></i>
+                <h3>Tools & Databases</h3>
+                <p><strong>Version Control:</strong> Git, GitHub</p>
+                <p><strong>Databases:</strong> SQL Server, MySQL</p>
+                <p><strong>Engines:</strong> Unity Engine, Unity 3D</p>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 80px;">Global <span class="highlight">Certifications</span></h2>
+        <div class="grid">
+            <div class="card" style="border-left: 5px solid var(--accent);">
+                <h3>AI & ML Made Easy</h3>
+                <p>Basic to Advanced Specialization (2025)</p>
+                <span class="tech-tag">Verified</span>
+            </div>
+            <div class="card" style="border-left: 5px solid var(--accent);">
+                <h3>Java for Beginners</h3>
+                <p>Certification of Completion - Core Java Fundamentals</p>
+                <span class="tech-tag">Verified</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE LOGIC SCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
