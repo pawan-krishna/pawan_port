@@ -1,45 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>About | NPKV</title>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Pawan Krishna Vaarshith</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .about-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-bottom: 4.5rem;
+    }
+    /* Profile card */
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      text-align: center;
+      position: sticky;
+      top: 80px;
+    }
+    .avatar {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--accent-dim);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+    .profile-name {
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+    .profile-role { font-size: 0.75rem; color: var(--accent); font-weight: 500; margin-bottom: 1.4rem; }
+    .profile-rows { text-align: left; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.6rem; }
+    .pr-row { display: flex; align-items: flex-start; gap: 10px; font-size: 0.78rem; color: var(--muted); }
+    .pr-row .ico { font-size: 0.9rem; margin-top: 1px; }
+    /* About text */
+    .about-text h2 {
+      font-family: var(--font-head);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    .about-text h2 em { font-style: normal; color: var(--accent); }
+    .about-text p { font-size: 0.9rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.1rem; }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .interests { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+    .interest {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--muted);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 12px;
+      transition: border-color var(--ease);
+    }
+    .interest:hover { border-color: rgba(91,143,255,0.3); }
+
+    /* What I Do */
+    .wid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 4.5rem;
+    }
+    .wid-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color var(--ease), transform var(--ease);
+    }
+    .wid-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+    .wid-icon { font-size: 1.6rem; margin-bottom: 0.9rem; }
+    .wid-card h3 { font-family: var(--font-head); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+    .wid-card p  { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+
+    @media (max-width: 768px) {
+      .about-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .profile-card { position: static; }
+    }
+  </style>
 </head>
 <body>
-    <!-- COPY NAV BLOCK FROM ABOVE HERE -->
-    <nav>
-        <a href="index.html" class="logo">NPKV</a>
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-            <div class="theme-switch-wrapper"><label class="theme-switch"><input type="checkbox" id="checkbox"><div class="slider"></div></label></div>
-            <div class="hamburger"><span></span><span></span><span></span></div>
-        </div>
-    </nav>
+  <script>if(localStorage.getItem("pkv-theme")==="light")document.body.classList.add("light");</script>
+    <nav class="navbar">
+    <div class="nav-logo">NPKV<span>.</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <!-- Right controls: LinkedIn + Theme Toggle + Hamburger -->
+    <div class="nav-controls">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener" class="nav-linkedin" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+      <!-- Theme Toggle -->
+      <label class="theme-toggle" aria-label="Toggle light/dark mode">
+        <input type="checkbox" id="themeToggleInput">
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+      </label>
+      <!-- Hamburger (mobile) -->
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="education.html">Education</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener" class="mobile-linkedin">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn Profile
+    </a>
+  </div>
 
-    <section>
-        <h2>Professional Journey</h2>
-        <div class="grid">
-            <div class="card">
-                <h3 style="color: var(--accent);">AI /ML Internship</h3>
-                <p><strong>AI /ML Intern</strong> | 2026</p>
-                <p style="margin-top:10px; color: var(--text-dim);">Deeply involved in data preprocessing for astronomical datasets. Developed Python scripts to automate feature engineering for large-scale predictive models.</p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--accent);">Education</h3>
-                <p><strong>B.Tech CSE (AI & ML)</strong><br>BVRIT | 2023 - 2027</p>
-                <p style="margin-top:10px;"><strong>Intermediate</strong><br>Sri Chaitanya | 87% Score</p>
-            </div>
-        </div>
-    </section>
+  <div class="page-header">
+    <div class="page-tag">👤 About Me</div>
+    <h1 class="page-title">The Person <em>Behind the Code</em></h1>
+    <p class="page-desc">A little about who I am, what drives me, and what I'm working toward.</p>
+  </div>
 
-    <!-- CRITICAL: THIS SCRIPT MUST BE AT THE BOTTOM OF EVERY PAGE -->
-    <script src="script.js"></script>
+  <div class="container section">
+    <div class="about-layout">
+      <!-- Profile Card -->
+      <div class="profile-card reveal">
+        <div class="avatar">NPKV</div>
+        <div class="profile-name">Nadella Pawan Krishna Vaarshith</div>
+        <div class="profile-role">AI & ML Student · Developer</div>
+        <div class="profile-rows">
+          <div class="pr-row"><span class="ico">📍</span><span>Hyderabad, Telangana, India</span></div>
+          <div class="pr-row"><span class="ico">🎓</span><span>B.Tech CSE (AI & ML), BVRIT</span></div>
+          <div class="pr-row"><span class="ico">📅</span><span>Graduating 2027</span></div>
+          <div class="pr-row"><span class="ico">📧</span><span><a href="/cdn-cgi/l/Vaarshit2005@gmail.com" class="__cf_email__" data-cfemail="d5a3b4b4a7a6bdbca1e7e5e5e095b2b8b4bcb9fbb6bab8">Vaarshit2005@gmail.com</a></span></div>
+          <div class="pr-row"><span class="ico">📞</span><span>+91 9848571887</span></div>
+          <div class="pr-row"><span class="ico">💼</span><span>Open to Internships</span></div>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-sm btn-full">Get In Touch</a>
+      </div>
+
+      <!-- Text -->
+      <div class="about-text">
+        <div class="reveal">
+          <h2>Building the Future with <em>Artificial Intelligence</em></h2>
+          <p>
+            Hi! I'm <strong>Pawan Krishna Vaarshith</strong>, an enthusiastic AI & Machine Learning student pursuing my B.Tech at <strong>BV Raju Institute of Technology (BVRIT)</strong>, Telangana.
+          </p>
+          <p>
+            My passion lies at the intersection of <strong>data and intelligence</strong> — building models that learn from patterns and solve meaningful problems. I've worked on everything from detecting distant exoplanets with CNNs to classifying fashion images using transfer learning.
+          </p>
+          <p>
+            I enjoy the full pipeline: raw data → preprocessing → model training → deployment via interactive UI. I love making AI accessible, not just academically rigorous.
+          </p>
+          <p>
+            Outside of tech, I'm into <strong>gaming</strong> (and building games with Unity!), <strong>travel</strong>, and staying consistent at the <strong>gym</strong>.
+          </p>
+          <div class="interests">
+            <span class="interest">✈️ Travel</span>
+            <span class="interest">🎮 Gaming</span>
+            <span class="interest">🏋️ Gym</span>
+            <span class="interest">🔭 Astronomy</span>
+            <span class="interest">🤖 AI Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What I Do -->
+    <hr class="section-sep">
+    <div class="reveal" style="margin-bottom:1.5rem;">
+      <div class="section-label">Expertise Areas</div>
+      <div class="section-title">What I <em>Work On</em></div>
+      <p class="section-sub">Areas where I invest my learning and build projects.</p>
+    </div>
+    <div class="wid-grid stagger-parent">
+      <div class="wid-card stagger-child">
+        <div class="wid-icon">🧠</div>
+        <h3>Machine Learning</h3>
+        <p>Training supervised and unsupervised models for classification, prediction, and detection tasks.</p>
+      </div>
+      <div class="wid-card stagger-child">
+        <div class="wid-icon">🔬</div>
+        <h3>Deep Learning</h3>
+        <p>Designing CNN architectures for image classification, signal analysis, and real-world AI applications.</p>
+      </div>
+      <div class="wid-card stagger-child">
+        <div class="wid-icon">🖥️</div>
+        <h3>App Interfaces</h3>
+        <p>Building Streamlit-powered interfaces to visualize and demo AI models interactively.</p>
+      </div>
+      <div class="wid-card stagger-child">
+        <div class="wid-icon">🎮</div>
+        <h3>Game Development</h3>
+        <p>Creating 3D games and interactive experiences with Unity Engine and Unity 3D.</p>
+      </div>
+    </div>
+  </div>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">NPKV<span>.</span></div>
+      <p>© 2025 Nadella Pawan Krishna Vaarshith</p>
+      <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;justify-content:center;">
+        <p>Hyderabad, Telangana, India</p>
+        <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener" class="footer-linkedin">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
 </body>
 </html>

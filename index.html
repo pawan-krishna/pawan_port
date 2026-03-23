@@ -1,59 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>NPKV | AI Specialist</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawan Krishna Vaarshith — AI/ML Graduate Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---- Hero ---- */
+    .hero {
+      min-height: calc(100vh - 60px);
+      display: flex;
+      align-items: center;
+      padding: 3.5rem 2.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow-1 {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(91,143,255,0.10), transparent 65%);
+      top: -200px; right: -150px;
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(66,200,138,0.06), transparent 65%);
+      bottom: -100px; left: 100px;
+      pointer-events: none;
+    }
+    /* Subtle dot grid */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse at 70% 40%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 70% 40%, black 20%, transparent 70%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    /* Name pill */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(91,143,255,0.25);
+      border-radius: 100px;
+      padding: 5px 14px 5px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: breathe 2s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%,100% { opacity: 1; } 50% { opacity: 0.4; }
+    }
+
+    .hero-name {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      color: var(--text);
+      margin-bottom: 1.1rem;
+    }
+    .hero-name .line-2 {
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero-role-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-role-bar {
+      width: 28px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .hero-role {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--muted);
+      min-height: 1.5em;
+    }
+    .cursor-blink { color: var(--accent); animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .hero-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 500px;
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+    }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    /* ---- Stats strip ---- */
+    .stats-strip {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .stat-cell {
+      flex: 1;
+      padding: 1.4rem 1.6rem;
+      border-right: 1px solid var(--border);
+      min-width: 0;
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-lbl {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- Quick Nav ---- */
+    .ql-heading {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--faint);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 4.5rem;
+    }
+    .ql-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      transition: border-color var(--ease), transform var(--ease);
+    }
+    .ql-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .ql-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--accent-dim);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .ql-label { font-family: var(--font-head); font-size: 0.82rem; font-weight: 700; margin-bottom: 1px; }
+    .ql-sub   { font-size: 0.7rem; color: var(--muted); }
+
+    /* ---- Tech pills ---- */
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 5rem;
+    }
+    .tech-pill {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 12px;
+      transition: border-color var(--ease), color var(--ease);
+    }
+    .tech-pill:hover { border-color: rgba(91,143,255,0.3); color: var(--accent); }
+
+    @media (max-width: 640px) {
+      .stats-strip { flex-direction: column; }
+      .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-cell:last-child { border-bottom: none; }
+    }
+  </style>
 </head>
 <body>
+  <script>if(localStorage.getItem("pkv-theme")==="light")document.body.classList.add("light");</script>
 
-    <nav>
-        <a href="index.html" class="logo">NPKV</a>
-        
-        <ul class="nav-menu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <!-- Social Icons inside Nav for Desktop -->
-            <li style="display:flex; gap:15px; margin-left:10px;">
-                <a href="https://www.linkedin.com/in/nadella-pawan-krishna-vaarshith-105277295/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:vaarshit2005@gmail.com"><i class="fas fa-envelope"></i></a>
-            </li>
-        </ul>
+    <nav class="navbar">
+    <div class="nav-logo">NPKV<span>.</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <!-- Right controls: LinkedIn + Theme Toggle + Hamburger -->
+    <div class="nav-controls">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/nadella-pawan-krishna-vaarshith-105277295?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="nav-linkedin" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+      <!-- Theme Toggle -->
+      <label class="theme-toggle" aria-label="Toggle light/dark mode">
+        <input type="checkbox" id="themeToggleInput">
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+      </label>
+      <!-- Hamburger (mobile) -->
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="education.html">Education</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener" class="mobile-linkedin">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn Profile
+    </a>
+  </div>
 
-        <div style="display: flex; align-items: center; gap: 20px;">
-            <!-- THE PERFECT THEME TOGGLE BAR -->
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider"></div>
-                </label>
-            </div>
-            <!-- HAMBURGER MENU FOR MOBILE -->
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Open to Internships 
+      </div>
+      <h1 class="hero-name">
+        Nadella Pawan
+        <span class="line-2">Krishna Vaarshith</span>
+      </h1>
+      <div class="hero-role-line">
+        <div class="hero-role-bar"></div>
+        <p class="hero-role"><span id="typewriter"></span><span class="cursor-blink">|</span></p>
+      </div>
+      <p class="hero-desc">
+        B.Tech student in CSE — AI &amp; ML at BVRIT, Hyderabad. Building intelligent systems with deep learning, Python, and a passion for solving real-world problems.
+      </p>
+      <div class="hero-actions">
+        <a href="projects.html" class="btn btn-primary">View Projects →</a>
+        <a href="contact.html" class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
 
-    <section>
-        <p style="color: var(--accent); font-weight: 700; letter-spacing: 5px; margin-bottom: 15px;">  • Student</p>
-        <h1>Artificial <span class="highlight">Intelligence.</span></h1>
-        <p style="font-size: 1.3rem; color: var(--text-dim); max-width: 800px; margin-bottom: 40px;">
-            I am <strong>Nadella Pawan Krishna Vaarshith</strong>, a CSE student at BVRIT. I specialize in the convergence of Artificial Intelligence and real-world data discovery. I don't just build models; I create systems that decode the stories hidden within data, aiming for a future where technology and human curiosity exist in perfect synergy.
-        </p>
-        <div style="display:flex; gap:20px; flex-wrap: wrap;">
-            <a href="projects.html" class="btn">View My Research</a>
-            <a href="contact.html" class="btn" style="background:transparent; border: 2px solid var(--accent); color: var(--accent);">Get In Touch</a>
-        </div>
-    </section>
+  <div class="container">
 
-    <script src="script.js"></script>
+    <!-- Stats -->
+    <div class="stats-strip reveal">
+      <div class="stat-cell">
+        <span class="stat-num">86%</span>
+        <span class="stat-lbl">Exoplanet Detection Accuracy</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">2+</span>
+        <span class="stat-lbl">AI / ML Projects Built</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">2027</span>
+        <span class="stat-lbl">Expected Graduation</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">5+</span>
+        <span class="stat-lbl">Technologies Used</span>
+      </div>
+    </div>
+
+    <!-- Quick Nav -->
+    <p class="ql-heading reveal">Explore Portfolio</p>
+    <div class="quick-links stagger-parent">
+      <a href="about.html" class="ql-card stagger-child">
+        <div class="ql-icon">👤</div>
+        <div><div class="ql-label">About Me</div><div class="ql-sub">Story & background</div></div>
+      </a>
+      <a href="projects.html" class="ql-card stagger-child">
+        <div class="ql-icon">🚀</div>
+        <div><div class="ql-label">Projects</div><div class="ql-sub">AI/ML builds</div></div>
+      </a>
+      <a href="skills.html" class="ql-card stagger-child">
+        <div class="ql-icon">⚡</div>
+        <div><div class="ql-label">Skills</div><div class="ql-sub">Tech & tools</div></div>
+      </a>
+      <a href="education.html" class="ql-card stagger-child">
+        <div class="ql-icon">🎓</div>
+        <div><div class="ql-label">Education</div><div class="ql-sub">Academic history</div></div>
+      </a>
+      <a href="certificates.html" class="ql-card stagger-child">
+        <div class="ql-icon">📜</div>
+        <div><div class="ql-label">Certificates</div><div class="ql-sub">Courses & awards</div></div>
+      </a>
+      <a href="contact.html" class="ql-card stagger-child">
+        <div class="ql-icon">✉️</div>
+        <div><div class="ql-label">Contact</div><div class="ql-sub">Get in touch</div></div>
+      </a>
+    </div>
+
+    <!-- Tech strip -->
+    <p class="ql-heading reveal">Technologies I Work With</p>
+    <div class="tech-row reveal">
+      <span class="tech-pill">Python</span><span class="tech-pill">TensorFlow</span>
+      <span class="tech-pill">Keras</span><span class="tech-pill">Deep Learning</span>
+      <span class="tech-pill">CNNs</span><span class="tech-pill">Streamlit</span>
+      <span class="tech-pill">Java</span><span class="tech-pill">Unity 3D</span>
+      <span class="tech-pill">Git & GitHub</span><span class="tech-pill">SQL</span>
+      <span class="tech-pill">HTML & CSS</span>
+    </div>
+
+  </div>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">NPKV<span>.</span></div>
+      <p>© 2025 Nadella Pawan Krishna Vaarshith</p>
+      <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;justify-content:center;">
+        <p>Hyderabad, Telangana, India</p>
+        <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener" class="footer-linkedin">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script>
+    const words = ['AI & ML Engineer','Deep Learning Developer','Python Enthusiast','Exoplanet Researcher 🔭','Game Developer'];
+    let wi=0,ci=0,del=false;
+    const el=document.getElementById('typewriter');
+    function type(){
+      const w=words[wi];
+      el.textContent=del?w.slice(0,ci--):w.slice(0,ci++);
+      if(!del&&ci>w.length){del=true;setTimeout(type,1500);return;}
+      if(del&&ci<0){del=false;wi=(wi+1)%words.length;}
+      setTimeout(type,del?45:80);
+    }
+    setTimeout(type,500);
+  </script>
 </body>
 </html>

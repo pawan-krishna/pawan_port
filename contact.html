@@ -1,40 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Contact | NPKV</title>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Pawan Krishna Vaarshith</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-bottom: 4.5rem;
+    }
+
+    /* Info side */
+    .contact-info h2 {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.9rem;
+    }
+    .contact-info h2 em { font-style: normal; color: var(--accent); }
+    .contact-info > p { font-size: 0.87rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+
+    .contact-rows { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1.8rem; }
+    .cr-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.84rem;
+      color: var(--muted);
+      transition: color var(--ease);
+    }
+    .cr-item:hover { color: var(--accent); }
+    .cr-icon {
+      width: 38px; height: 38px;
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: border-color var(--ease);
+    }
+    .cr-item:hover .cr-icon { border-color: rgba(91,143,255,0.35); }
+
+    /* Available indicator */
+    .avail-indicator {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid rgba(66,200,138,0.2);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1.2rem;
+    }
+    .avail-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      animation: pulse-avail 2s ease-in-out infinite;
+    }
+    @keyframes pulse-avail {
+      0%,100% { box-shadow: 0 0 0 0 rgba(66,200,138,0.4); }
+      50%      { box-shadow: 0 0 0 5px rgba(66,200,138,0); }
+    }
+    .avail-text strong { display: block; font-family: var(--font-head); font-size: 0.84rem; font-weight: 700; }
+    .avail-text span   { font-size: 0.74rem; color: var(--muted); }
+
+    /* Form panel */
+    .form-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .form-panel h3 {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .form-note { font-size: 0.76rem; text-align: center; margin-top: 0.7rem; min-height: 1.2em; color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">NPKV</a>
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-            <div class="theme-switch-wrapper"><label class="theme-switch"><input type="checkbox" id="checkbox"><div class="slider"></div></label></div>
-            <div class="hamburger"><span></span><span></span><span></span></div>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <div class="nav-logo">NPKV<span>.</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="projects.html">Projects</a><a href="skills.html">Skills</a>
+      <a href="education.html">Education</a><a href="certificates.html">Certificates</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="projects.html">Projects</a><a href="skills.html">Skills</a>
+    <a href="education.html">Education</a><a href="certificates.html">Certificates</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-    <section style="text-align: center;">
-        <div class="card" style="max-width: 600px; margin: auto;">
-            <h2>Let's Build Something Great</h2>
-            <div style="margin: 30px 0;">
-                <p>📧 <strong>vaarshit2005@gmail.com</strong></p>
-                <p>📞 <strong>+91 9848571887</strong></p>
-            </div>
-            <div style="display:flex; gap: 15px; justify-content:center;">
-                <a href="https://linkedin.com/in/YOUR-PROFILE" target="_blank" class="btn">LinkedIn</a>
-                <a href="resume.pdf" download class="btn" style="background:transparent; border: 1px solid var(--accent); color: var(--accent);">Download CV</a>
-            </div>
-        </div>
-    </section>
+  <div class="page-header">
+    <div class="page-tag">✉️ Contact</div>
+    <h1 class="page-title">Let's <em>Connect</em></h1>
+    <p class="page-desc">Open to internship opportunities, project collaborations, and conversations about AI.</p>
+  </div>
 
-    <script src="script.js"></script>
+  <div class="container section">
+    <div class="contact-layout">
+
+      <!-- Info -->
+      <div class="contact-info reveal">
+        <h2>Open to <em>Opportunities</em></h2>
+        <p>
+          I'm a second-year B.Tech student actively seeking internship opportunities and project collaborations in AI & ML. Feel free to reach out through any of the channels below!
+        </p>
+
+        <div class="contact-rows">
+          <a href="mailto:vaarshit2005@gmail.com" class="cr-item">
+            <div class="cr-icon">📧</div>
+            vaarshit2005@gmail.com
+          </a>
+          <a href="tel:9848571887" class="cr-item">
+            <div class="cr-icon">📞</div>
+            +91 9848571887
+          </a>
+          <div class="cr-item">
+            <div class="cr-icon">📍</div>
+            Hyderabad, Telangana, India
+          </div>
+          <div class="cr-item">
+            <div class="cr-icon">🎓</div>
+            BVRIT — B.Tech CSE (AI & ML)
+          </div>
+        </div>
+
+        <div class="avail-indicator">
+          <div class="avail-dot"></div>
+          <div class="avail-text">
+            <strong>Currently Available</strong>
+            <span>Open to internships &amp; collaborations · 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-panel reveal">
+        <h3>Send a Message</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nameInput">Your Name</label>
+              <input type="text" id="nameInput" placeholder="Rahul Kumar" required />
+            </div>
+            <div class="form-group">
+              <label for="emailInput">Email</label>
+              <input type="email" id="emailInput" placeholder="you@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subjectInput">Reason for Reaching Out</label>
+            <select id="subjectInput">
+              <option value="">Select…</option>
+              <option>Internship Opportunity</option>
+              <option>Project Collaboration</option>
+              <option>Mentorship</option>
+              <option>General Enquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="msgInput">Message</label>
+            <textarea id="msgInput" rows="5" placeholder="Hi Pawan, I'd like to…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Send Message →</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">NPKV<span>.</span></div>
+      <p>© 2025 Nadella Pawan Krishna Vaarshith</p>
+      <p>Hyderabad, Telangana, India</p>
+    </div>
+  </footer>
+  <script src="shared.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const msg = document.getElementById('msgInput').value.trim();
+      const note = document.getElementById('formNote');
+      const btn  = document.getElementById('submitBtn');
+      if (!name || !email || !msg) {
+        note.textContent = '⚠️ Please fill in all required fields.';
+        note.style.color = 'var(--red)'; return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending…'; note.textContent = '';
+      setTimeout(() => {
+        note.textContent = '✅ Message sent! I\'ll get back to you soon.';
+        note.style.color = 'var(--green)';
+        btn.textContent = 'Send Message →'; btn.disabled = false;
+        this.reset();
+        setTimeout(() => { note.textContent = ''; }, 5000);
+      }, 1300);
+    });
+  </script>
 </body>
 </html>
