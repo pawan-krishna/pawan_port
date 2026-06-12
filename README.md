@@ -37,8 +37,6 @@ Then, open your browser and navigate to:
 ## ✉️ Contact
 
 - **Email**: [Vaarshit2005@gmail.com](mailto:Vaarshit2005@gmail.com)
-- **LinkedIn**: [Your LinkedIn URL]
-- **GitHub**: [Your GitHub URL]
 
 ---
 *© 2025 Nadella Pawan Krishna Vaarshit*
