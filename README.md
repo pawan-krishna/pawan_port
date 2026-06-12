@@ -41,4 +41,4 @@ Then, open your browser and navigate to:
 - **GitHub**: [Your GitHub URL]
 
 ---
-*Designed with ❤️ by an AI | © 2025 Nadella Pawan Krishna Vaarshit*
+*© 2025 Nadella Pawan Krishna Vaarshit*

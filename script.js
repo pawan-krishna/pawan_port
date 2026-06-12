@@ -140,3 +140,36 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// Smooth scrolling without changing URL hash
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth'
+      });
+      // Optionally update history without the hash, just to be safe
+      window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+    }
+  });
+});
+
+// Clear hash on page load if it exists
+if (window.location.hash) {
+  window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+}
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
