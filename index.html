@@ -3,393 +3,323 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pawan Krishna Vaarshith — AI/ML Graduate Portfolio</title>
+  <title>Nadella Pawan Krishna Vaarshit | AI & ML Developer</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    /* ---- Hero ---- */
-    .hero {
-      min-height: calc(100vh - 60px);
-      display: flex;
-      align-items: center;
-      padding: 3.5rem 2.5rem 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-glow-1 {
-      position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(91,143,255,0.10), transparent 65%);
-      top: -200px; right: -150px;
-      pointer-events: none;
-    }
-    .hero-glow-2 {
-      position: absolute;
-      width: 350px; height: 350px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(66,200,138,0.06), transparent 65%);
-      bottom: -100px; left: 100px;
-      pointer-events: none;
-    }
-    /* Subtle dot grid */
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-      mask-image: radial-gradient(ellipse at 70% 40%, black 20%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse at 70% 40%, black 20%, transparent 70%);
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
-    }
-
-    /* Name pill */
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(91,143,255,0.25);
-      border-radius: 100px;
-      padding: 5px 14px 5px 8px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-    }
-    .hero-badge-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 6px var(--green);
-      animation: breathe 2s ease-in-out infinite;
-    }
-    @keyframes breathe {
-      0%,100% { opacity: 1; } 50% { opacity: 0.4; }
-    }
-
-    .hero-name {
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: clamp(2.6rem, 6.5vw, 5rem);
-      line-height: 1;
-      letter-spacing: -0.045em;
-      color: var(--text);
-      margin-bottom: 1.1rem;
-    }
-    .hero-name .line-2 {
-      color: var(--accent);
-      display: block;
-    }
-
-    .hero-role-line {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1.4rem;
-    }
-    .hero-role-bar {
-      width: 28px; height: 2px;
-      background: var(--accent);
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-    .hero-role {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--muted);
-      min-height: 1.5em;
-    }
-    .cursor-blink { color: var(--accent); animation: blink 1s step-end infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    .hero-desc {
-      font-size: 0.92rem;
-      color: var(--muted);
-      max-width: 500px;
-      line-height: 1.8;
-      margin-bottom: 2.2rem;
-    }
-    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-
-    /* ---- Stats strip ---- */
-    .stats-strip {
-      display: flex;
-      align-items: stretch;
-      gap: 0;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin: 3rem 0;
-      overflow: hidden;
-    }
-    .stat-cell {
-      flex: 1;
-      padding: 1.4rem 1.6rem;
-      border-right: 1px solid var(--border);
-      min-width: 0;
-    }
-    .stat-cell:last-child { border-right: none; }
-    .stat-num {
-      font-family: var(--font-head);
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--accent);
-      letter-spacing: -0.03em;
-      display: block;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-    .stat-lbl {
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-
-    /* ---- Quick Nav ---- */
-    .ql-heading {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--faint);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .quick-links {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-      gap: 0.8rem;
-      margin-bottom: 4.5rem;
-    }
-    .ql-card {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem 1.2rem;
-      transition: border-color var(--ease), transform var(--ease);
-    }
-    .ql-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-    .ql-icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: var(--accent-dim);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .ql-label { font-family: var(--font-head); font-size: 0.82rem; font-weight: 700; margin-bottom: 1px; }
-    .ql-sub   { font-size: 0.7rem; color: var(--muted); }
-
-    /* ---- Tech pills ---- */
-    .tech-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 5rem;
-    }
-    .tech-pill {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--muted);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 4px 12px;
-      transition: border-color var(--ease), color var(--ease);
-    }
-    .tech-pill:hover { border-color: rgba(91,143,255,0.3); color: var(--accent); }
-
-    @media (max-width: 640px) {
-      .stats-strip { flex-direction: column; }
-      .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat-cell:last-child { border-bottom: none; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <script>if(localStorage.getItem("pkv-theme")==="light")document.body.classList.add("light");</script>
+  <!-- Neural Network Background -->
+  <canvas id="neural-bg"></canvas>
 
-    <nav class="navbar">
-    <div class="nav-logo">NPKV<span>.</span></div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
-      <a href="education.html">Education</a>
-      <a href="certificates.html">Certificates</a>
-      <a href="contact.html">Contact</a>
+  <!-- Navigation -->
+  <nav class="glass-nav">
+    <div class="nav-logo">
+      <div class="neon-logo">PK</div>
+      NPKV<span class="pulse-dot"></span>
     </div>
-    <!-- Right controls: LinkedIn + Theme Toggle + Hamburger -->
-    <div class="nav-controls">
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/nadella-pawan-krishna-vaarshith-105277295?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="nav-linkedin" aria-label="LinkedIn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      </a>
-      <!-- Theme Toggle -->
-      <label class="theme-toggle" aria-label="Toggle light/dark mode">
-        <input type="checkbox" id="themeToggleInput">
-        <div class="toggle-track"></div>
-        <div class="toggle-thumb"></div>
-      </label>
-      <!-- Hamburger (mobile) -->
-      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
-  <div class="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
-    <a href="education.html">Education</a>
-    <a href="certificates.html">Certificates</a>
-    <a href="contact.html">Contact</a>
-    <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener" class="mobile-linkedin">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      LinkedIn Profile
-    </a>
-  </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-inner">
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        Open to Internships 
+  <!-- Main Content container -->
+  <main class="content-container">
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <div class="profile-avatar-container">
+          <div class="profile-avatar">PK</div>
+        </div>
+        <div class="badge-tag">AI & Machine Learning Developer</div>
+        <h1 class="glitch-text" data-text="NADELLA PAWAN KRISHNA VAARSHIT">NADELLA PAWAN KRISHNA VAARSHIT</h1>
+        <p class="hero-subtitle">Building intelligent models that learn from patterns and solve meaningful problems. From distant exoplanets to deep space biology.</p>
+        <div class="hero-actions">
+          <a href="#about" class="btn btn-primary">Learn About Me</a>
+          <a href="#projects" class="btn btn-outline">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+        <div class="social-links mt-4">
+          <!-- Placeholders for GitHub and LinkedIn URLs -->
+          <a href="[YOUR_GITHUB_URL]" target="_blank" class="social-icon" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="[YOUR_LINKEDIN_URL]" target="_blank" class="social-icon" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
       </div>
-      <h1 class="hero-name">
-        Nadella Pawan
-        <span class="line-2">Krishna Vaarshith</span>
-      </h1>
-      <div class="hero-role-line">
-        <div class="hero-role-bar"></div>
-        <p class="hero-role"><span id="typewriter"></span><span class="cursor-blink">|</span></p>
-      </div>
-      <p class="hero-desc">
-        B.Tech student in CSE — AI &amp; ML at BVRIT, Hyderabad. Building intelligent systems with deep learning, Python, and a passion for solving real-world problems.
-      </p>
-      <div class="hero-actions">
-        <a href="projects.html" class="btn btn-primary">View Projects →</a>
-        <a href="contact.html" class="btn btn-outline">Contact Me</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="container">
-
-    <!-- Stats -->
-    <div class="stats-strip reveal">
-      <div class="stat-cell">
-        <span class="stat-num">86%</span>
-        <span class="stat-lbl">Exoplanet Detection Accuracy</span>
+    <!-- About & Education Section -->
+    <section id="about" class="section-padding hidden-reveal">
+      <div class="section-header">
+        <h2 class="section-title">About <span class="highlight">Me</span></h2>
+        <p style="color: var(--muted); margin-top: 1rem; font-size: 1.1rem;">Who I am and my educational background.</p>
       </div>
-      <div class="stat-cell">
-        <span class="stat-num">2+</span>
-        <span class="stat-lbl">AI / ML Projects Built</span>
+      <div class="about-grid">
+        <div class="glass-card about-text">
+          <p>Hi! I'm <strong>Nadella Pawan Krishna Vaarshit</strong>, currently pursuing my B.Tech in CSE (AI & ML) at BV Raju Institute of Technology (BVRIT) in Hyderabad, graduating in 2027.</p>
+          <p>My passion lies at the intersection of data and intelligence. I enjoy the full pipeline: raw data extraction, preprocessing, model training, and deployment via interactive UIs. I strive to make AI accessible and practically useful.</p>
+          <div class="interests-container">
+            <span class="glass-tag">✈️ Travel</span>
+            <span class="glass-tag">🎮 Gaming / Unity Dev</span>
+            <span class="glass-tag">🏋️ Gym</span>
+            <span class="glass-tag">🔭 Astronomy</span>
+            <span class="glass-tag">🤖 AI Research</span>
+          </div>
+        </div>
+        <div class="timeline-container">
+          <div class="timeline-item">
+            <div class="timeline-dot current"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2023 — 2027</span>
+              <h3>B.Tech CSE (AI & ML)</h3>
+              <p>BV Raju Institute of Technology (BVRIT), Narsapur</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2021 — 2023</span>
+              <h3>Intermediate (MPC) - 87%</h3>
+              <p>Sri Chaitanya, Hyderabad</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">— 2021</span>
+              <h3>Secondary School (SSC)</h3>
+              <p>Bhashyam High School, Hyderabad</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="stat-cell">
-        <span class="stat-num">2027</span>
-        <span class="stat-lbl">Expected Graduation</span>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding hidden-reveal">
+      <div class="section-header">
+        <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
+        <p style="color: var(--muted); margin-top: 1rem; font-size: 1.1rem;">The tools, languages, and frameworks I use.</p>
       </div>
-      <div class="stat-cell">
-        <span class="stat-num">5+</span>
-        <span class="stat-lbl">Technologies Used</span>
+      <div class="skills-grid">
+        
+        <div class="glass-card skill-category">
+          <div class="skill-icon">🧠</div>
+          <h3>AI & Machine Learning</h3>
+          <div class="tags-wrapper">
+            <span class="skill-tag">Deep Learning (CNNs)</span>
+            <span class="skill-tag">TensorFlow & Keras</span>
+            <span class="skill-tag">Random Forests</span>
+            <span class="skill-tag">Vision-Language Models (VLMs)</span>
+            <span class="skill-tag">Knowledge Graphs</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-category">
+          <div class="skill-icon">💻</div>
+          <h3>Languages & Backend</h3>
+          <div class="tags-wrapper">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">Express / Node.js</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-category">
+          <div class="skill-icon">🛠️</div>
+          <h3>Tools & Frameworks</h3>
+          <div class="tags-wrapper">
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">React Native</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">NetworkX</span>
+            <span class="skill-tag">Unity 3D</span>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <!-- Quick Nav -->
-    <p class="ql-heading reveal">Explore Portfolio</p>
-    <div class="quick-links stagger-parent">
-      <a href="about.html" class="ql-card stagger-child">
-        <div class="ql-icon">👤</div>
-        <div><div class="ql-label">About Me</div><div class="ql-sub">Story & background</div></div>
-      </a>
-      <a href="projects.html" class="ql-card stagger-child">
-        <div class="ql-icon">🚀</div>
-        <div><div class="ql-label">Projects</div><div class="ql-sub">AI/ML builds</div></div>
-      </a>
-      <a href="skills.html" class="ql-card stagger-child">
-        <div class="ql-icon">⚡</div>
-        <div><div class="ql-label">Skills</div><div class="ql-sub">Tech & tools</div></div>
-      </a>
-      <a href="education.html" class="ql-card stagger-child">
-        <div class="ql-icon">🎓</div>
-        <div><div class="ql-label">Education</div><div class="ql-sub">Academic history</div></div>
-      </a>
-      <a href="certificates.html" class="ql-card stagger-child">
-        <div class="ql-icon">📜</div>
-        <div><div class="ql-label">Certificates</div><div class="ql-sub">Courses & awards</div></div>
-      </a>
-      <a href="contact.html" class="ql-card stagger-child">
-        <div class="ql-icon">✉️</div>
-        <div><div class="ql-label">Contact</div><div class="ql-sub">Get in touch</div></div>
-      </a>
-    </div>
-
-    <!-- Tech strip -->
-    <p class="ql-heading reveal">Technologies I Work With</p>
-    <div class="tech-row reveal">
-      <span class="tech-pill">Python</span><span class="tech-pill">TensorFlow</span>
-      <span class="tech-pill">Keras</span><span class="tech-pill">Deep Learning</span>
-      <span class="tech-pill">CNNs</span><span class="tech-pill">Streamlit</span>
-      <span class="tech-pill">Java</span><span class="tech-pill">Unity 3D</span>
-      <span class="tech-pill">Git & GitHub</span><span class="tech-pill">SQL</span>
-      <span class="tech-pill">HTML & CSS</span>
-    </div>
-
-  </div>
-
-    <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo">NPKV<span>.</span></div>
-      <p>© 2025 Nadella Pawan Krishna Vaarshith</p>
-      <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;justify-content:center;">
-        <p>Hyderabad, Telangana, India</p>
-        <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener" class="footer-linkedin">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding hidden-reveal">
+      <div class="section-header">
+        <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+        <p style="color: var(--muted); margin-top: 1rem; font-size: 1.1rem;">Real-world applications I've built using Machine Learning and AI.</p>
       </div>
-    </div>
-  </footer>
+      <div class="projects-container">
+        
+        <!-- Project 1: Titanplus AI -->
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-number">01</span>
+              <div class="project-tech-stack">
+                <span class="tech-pill">VLM</span><span class="tech-pill">React Native</span><span class="tech-pill">Express</span>
+              </div>
+            </div>
+            <h3 class="project-title">Titanplus AI</h3>
+            <p class="project-desc">A multi-modal health & performance ecosystem integrating Vision-Language Models (VLMs) for nutrition analysis and physique tracking. Features local LLM orchestration via LM Studio and a robust React Native/Express architecture.</p>
+            <div class="project-links">
+              <a href="https://github.com/pawan-krishna/Titanplus_AI" target="_blank" class="btn btn-outline btn-sm">View Source Code</a>
+            </div>
+          </div>
+        </div>
 
-  <script src="shared.js"></script>
-  <script>
-    const words = ['AI & ML Engineer','Deep Learning Developer','Python Enthusiast','Exoplanet Researcher 🔭','Game Developer'];
-    let wi=0,ci=0,del=false;
-    const el=document.getElementById('typewriter');
-    function type(){
-      const w=words[wi];
-      el.textContent=del?w.slice(0,ci--):w.slice(0,ci++);
-      if(!del&&ci>w.length){del=true;setTimeout(type,1500);return;}
-      if(del&&ci<0){del=false;wi=(wi+1)%words.length;}
-      setTimeout(type,del?45:80);
-    }
-    setTimeout(type,500);
-  </script>
+        <!-- Project 2: Virtual SOC Agent -->
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-number">02</span>
+              <div class="project-tech-stack">
+                <span class="tech-pill">Python</span><span class="tech-pill">Flask</span><span class="tech-pill">Gemini AI</span>
+              </div>
+            </div>
+            <h3 class="project-title">Virtual SOC Agent</h3>
+            <p class="project-desc">An AI-powered Security Operations Center (SOC) tool. It automates phishing email analysis by extracting IoCs, querying VirusTotal, and utilizing Gemini AI to dynamically generate comprehensive MITRE ATT&CK incident reports.</p>
+            <div class="project-links">
+              <a href="https://github.com/pawan-krishna/Virtual_SOC_Agent" target="_blank" class="btn btn-outline btn-sm">View Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: EarthData -->
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-number">03</span>
+              <div class="project-tech-stack">
+                <span class="tech-pill">Machine Learning</span><span class="tech-pill">NetworkX</span><span class="tech-pill">Streamlit</span>
+              </div>
+            </div>
+            <h3 class="project-title">EarthData: Air Quality & Space Biology</h3>
+            <p class="project-desc">A dual-purpose AI application featuring an Air Quality Dashboard predicting PM2.5 levels via a Random Forest Regressor, and a Space Biology Knowledge Engine parsing text data into an interactive NetworkX knowledge graph.</p>
+            <div class="project-links">
+              <a href="https://github.com/pawan-krishna/earthdata-air-quality" target="_blank" class="btn btn-outline btn-sm">View Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Exoplanets -->
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-number">04</span>
+              <div class="project-tech-stack">
+                <span class="tech-pill">Random Forest</span><span class="tech-pill">Kepler Data</span><span class="tech-pill">Streamlit</span>
+              </div>
+            </div>
+            <h3 class="project-title">Exoplanet Hunting with AI</h3>
+            <p class="project-desc">A machine learning project built during a hackathon (achieving 86% accuracy) that uses data from the Kepler Space Telescope to classify celestial objects. Features a real-time Streamlit web app for predicting confirmed exoplanets vs false positives.</p>
+            <div class="project-links">
+              <a href="https://github.com/pawan-krishna/exoplanet-hunting" target="_blank" class="btn btn-outline btn-sm">View Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Fashion Classification -->
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-number">05</span>
+              <div class="project-tech-stack">
+                <span class="tech-pill">CNN</span><span class="tech-pill">Deep Learning</span><span class="tech-pill">Jupyter</span>
+              </div>
+            </div>
+            <h3 class="project-title">Fashion Image Classification</h3>
+            <p class="project-desc">An image classification deep learning project focused on categorizing 10 different types of clothing and fashion items using Convolutional Neural Networks (CNNs) and transfer learning techniques.</p>
+            <div class="project-links">
+              <a href="https://github.com/pawan-krishna/fashion-classification" target="_blank" class="btn btn-outline btn-sm">View Source Code</a>
+            </div>
+          </div>
+        </div>
+        <!-- Project 6: Agentic-Auditor -->
+        <div class="project-card glass-card">
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-number">06</span>
+              <div class="project-tech-stack">
+                <span class="tech-pill">FastAPI</span><span class="tech-pill">Streamlit</span><span class="tech-pill">Security</span>
+              </div>
+            </div>
+            <h3 class="project-title">Agentic-Auditor Framework</h3>
+            <p class="project-desc">An autonomous security system orchestrating agentic workflows. It provides a tamper-resistant, 4-layer defense mechanism (Safety Policy, Immutable FSM, Anomaly Detection, Cryptographic Audit) with a Human-in-the-Loop frontend.</p>
+            <div class="project-links">
+              <a href="[YOUR_AGENTIC_REPO_URL]" target="_blank" class="btn btn-outline btn-sm">View Source Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certificates" class="section-padding hidden-reveal">
+      <div class="section-header">
+        <h2 class="section-title">My <span class="highlight">Certifications</span></h2>
+        <p style="color: var(--muted); margin-top: 1rem; font-size: 1.1rem;">Continuous learning and upskilling.</p>
+      </div>
+      <div class="cert-grid">
+        <div class="glass-card cert-card-large">
+          <div class="cert-icon">🤖</div>
+          <h3>AI & ML Made Easy: From Basic to Advanced</h3>
+          <span class="cert-year">2025</span>
+          <p>A comprehensive course covering AI and ML from fundamentals to advanced topics — neural networks, deep learning, supervised/unsupervised learning, and model deployment.</p>
+        </div>
+        <div class="glass-card cert-card-large" style="border-color: rgba(192, 132, 252, 0.4);">
+          <div class="cert-icon">☕</div>
+          <h3>Java for Beginners</h3>
+          <span class="cert-year">2024</span>
+          <p>Completed an introductory Java course covering object-oriented programming, data structures, and real-world application development.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding hidden-reveal" style="margin-bottom: 5rem;">
+      <div class="section-header" style="text-align: center;">
+        <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+      </div>
+      <div class="contact-layout" style="display: flex; justify-content: center;">
+        
+        <!-- Contact Box -->
+        <div class="glass-card contact-box" style="width: 100%; max-width: 600px; text-align: center;">
+          <p style="margin-bottom: 2rem; color: var(--muted); font-size: 1.1rem;">Currently open for internships and collaborative AI/ML research projects. Let's build something intelligent.</p>
+          
+          <div class="contact-details" style="align-items: center;">
+            <a href="mailto:Vaarshit2005@gmail.com" class="contact-link" style="justify-content: center;">
+              <span class="icon">📧</span> Vaarshit2005@gmail.com
+            </a>
+            <a href="tel:+919848571887" class="contact-link" style="justify-content: center;">
+              <span class="icon">📞</span> +91 9848571887
+            </a>
+            <a href="[YOUR_LINKEDIN_URL]" target="_blank" class="contact-link" style="justify-content: center;">
+              <span class="icon">🔗</span> LinkedIn Profile
+            </a>
+            <a href="[YOUR_GITHUB_URL]" target="_blank" class="contact-link" style="justify-content: center;">
+              <span class="icon">💻</span> GitHub Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Designed with ❤️ by an AI | © 2025 Nadella Pawan Krishna Vaarshit</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
